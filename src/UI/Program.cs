@@ -1,3 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Domain;
 
-Console.WriteLine("Hello, World!");
+const int numberOfCoconuts = 10;
+const double voltage = 34.0;
+const bool isNailed = true;
+
+var africanParrot = new Parrot(ParrotTypes.African, numberOfCoconuts, voltage, isNailed);
+var africanSpeed = africanParrot.GetSpeed();
+Console.WriteLine(africanSpeed);
