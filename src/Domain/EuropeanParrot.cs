@@ -3,7 +3,7 @@
 public class EuropeanParrot : Parrot
 {
     public EuropeanParrot(ParrotTypes type, int numberOfCoconuts, double voltage, bool isNailed) 
-        : base(type, numberOfCoconuts, voltage, isNailed) { }
+        : base(type, voltage, isNailed) { }
 
     protected override ParrotTypes GetType() => ParrotTypes.European;
 
