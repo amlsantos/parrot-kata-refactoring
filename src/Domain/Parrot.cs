@@ -3,31 +3,29 @@
 public class Parrot
 {
     private readonly bool _isNailed;
-    private readonly int _numberOfCoconuts;
     private readonly ParrotTypes _type;
     private readonly double _voltage;
 
     public static Parrot Create(ParrotTypes type, int numberOfCoconuts, double voltage, bool isNailed)
     {
+        if (type == ParrotTypes.European)
+            return new EuropeanParrot(type, numberOfCoconuts, voltage, isNailed);
         return new Parrot(type, numberOfCoconuts, voltage, isNailed);
     }
 
     public Parrot(ParrotTypes type, int numberOfCoconuts, double voltage, bool isNailed)
     {
         _type = type;
-        _numberOfCoconuts = numberOfCoconuts;
         _voltage = voltage;
         _isNailed = isNailed;
     }
 
-    public double GetSpeed()
+    public virtual double GetSpeed()
     {
         switch (GetType())
         {
-            case ParrotTypes.European:
-                return GetBaseSpeed();
             case ParrotTypes.African:
-            return Math.Max(0, GetBaseSpeed() - GetLoadFactor() * _numberOfCoconuts);
+                return Math.Max(0, GetBaseSpeed() - GetLoadFactor() * _numberOfCoconuts);
             case ParrotTypes.NorwegianBlue:
                 return _isNailed ? 0 : GetBaseSpeed(_voltage);
             default:
@@ -38,11 +36,6 @@ public class Parrot
     private double GetBaseSpeed(double voltage)
     {
         return Math.Min(24.0, voltage * GetBaseSpeed());
-    }
-
-    private double GetLoadFactor()
-    {
-        return 9.0;
     }
 
     protected double GetBaseSpeed() => 12.0;
