@@ -24,9 +24,6 @@ public abstract class Parrot
         string value;
         switch (GetType())
         {
-            case ParrotTypes.European:
-                value = "Sqoork!";
-                break;
             case ParrotTypes.African:
                 value = "Sqaark!";
                 break;
