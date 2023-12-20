@@ -4,8 +4,7 @@ public class AfricanParrot : Parrot
 {
     private readonly int _numberOfCoconuts;
 
-    public AfricanParrot(ParrotTypes type, int numberOfCoconuts, double voltage, bool isNailed) 
-        : base(type, numberOfCoconuts, voltage, isNailed)
+    public AfricanParrot(ParrotTypes type, int numberOfCoconuts, double voltage, bool isNailed) : base(type, voltage, isNailed)
     {
         _numberOfCoconuts = numberOfCoconuts;
     }
