@@ -24,9 +24,6 @@ public abstract class Parrot
         string value;
         switch (GetType())
         {
-            case ParrotTypes.African:
-                value = "Sqaark!";
-                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }

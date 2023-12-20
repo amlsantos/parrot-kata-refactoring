@@ -11,4 +11,6 @@ public class AfricanParrot : Parrot
     public override double GetSpeed() => Math.Max(0, GetBaseSpeed() - GetLoadFactor() * _numberOfCoconuts);
 
     private double GetLoadFactor() => 9.0;
+
+    public override string GetCry() => "Sqaark!";
 }
