@@ -7,6 +7,11 @@ public class Parrot
     private readonly ParrotTypes _type;
     private readonly double _voltage;
 
+    public static Parrot Create(ParrotTypes type, int numberOfCoconuts, double voltage, bool isNailed)
+    {
+        return new Parrot(type, numberOfCoconuts, voltage, isNailed);
+    }
+
     public Parrot(ParrotTypes type, int numberOfCoconuts, double voltage, bool isNailed)
     {
         _type = type;
