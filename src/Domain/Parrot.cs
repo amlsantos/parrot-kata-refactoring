@@ -4,7 +4,8 @@ public class Parrot
 {
     private readonly bool _isNailed;
     private readonly int _numberOfCoconuts;
-    private readonly ParrotTypes _type;
+    
+    public ParrotTypes Type { get; }
     private readonly double _voltage;
 
     public static Parrot Create(ParrotTypes type, int numberOfCoconuts, double voltage, bool isNailed)
@@ -14,7 +15,7 @@ public class Parrot
 
     public Parrot(ParrotTypes type, int numberOfCoconuts, double voltage, bool isNailed)
     {
-        _type = type;
+        Type = type;
         _numberOfCoconuts = numberOfCoconuts;
         _voltage = voltage;
         _isNailed = isNailed;
@@ -22,7 +23,7 @@ public class Parrot
 
     public double GetSpeed()
     {
-        switch (_type)
+        switch (Type)
         {
             case ParrotTypes.European:
                 return GetBaseSpeed();
@@ -53,7 +54,7 @@ public class Parrot
     public string GetCry()
     {
         string value;
-        switch (_type)
+        switch (Type)
         {
             case ParrotTypes.European:
                 value = "Sqoork!";
