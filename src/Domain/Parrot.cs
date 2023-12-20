@@ -45,10 +45,7 @@ public class Parrot
         return 9.0;
     }
 
-    private double GetBaseSpeed()
-    {
-        return 12.0;
-    }
+    protected double GetBaseSpeed() => 12.0;
 
     public string GetCry()
     {
