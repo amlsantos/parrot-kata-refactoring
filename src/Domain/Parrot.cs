@@ -10,10 +10,12 @@ public class Parrot
     {
         if (type == ParrotTypes.European)
             return new EuropeanParrot(type, numberOfCoconuts, voltage, isNailed);
-        return new Parrot(type, numberOfCoconuts, voltage, isNailed);
+        if (type == ParrotTypes.African)
+            return new AfricanParrot(type, numberOfCoconuts, voltage, isNailed);
+        return new Parrot(type, voltage, isNailed);
     }
 
-    public Parrot(ParrotTypes type, int numberOfCoconuts, double voltage, bool isNailed)
+    public Parrot(ParrotTypes type, double voltage, bool isNailed)
     {
         _type = type;
         _voltage = voltage;
@@ -24,8 +26,6 @@ public class Parrot
     {
         switch (GetType())
         {
-            case ParrotTypes.African:
-                return Math.Max(0, GetBaseSpeed() - GetLoadFactor() * _numberOfCoconuts);
             case ParrotTypes.NorwegianBlue:
                 return _isNailed ? 0 : GetBaseSpeed(_voltage);
             default:
