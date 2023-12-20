@@ -1,49 +1,28 @@
 ﻿namespace Domain;
 
-public class Parrot
+public abstract class Parrot
 {
-    private readonly bool _isNailed;
-    private readonly ParrotTypes _type;
-    private readonly double _voltage;
-
     public static Parrot Create(ParrotTypes type, int numberOfCoconuts, double voltage, bool isNailed)
     {
         if (type == ParrotTypes.European)
-            return new EuropeanParrot(type, numberOfCoconuts, voltage, isNailed);
+            return new EuropeanParrot();
         if (type == ParrotTypes.African)
-            return new AfricanParrot(type, numberOfCoconuts, voltage, isNailed);
-        return new Parrot(type, voltage, isNailed);
+            return new AfricanParrot(numberOfCoconuts);
+        if (type == ParrotTypes.NorwegianBlue)
+            return new NorwegianBlueParrot(voltage, isNailed);
+        
+        throw new ArgumentOutOfRangeException();
     }
 
-    public Parrot(ParrotTypes type, double voltage, bool isNailed)
-    {
-        _type = type;
-        _voltage = voltage;
-        _isNailed = isNailed;
-    }
-
-    public virtual double GetSpeed()
-    {
-        switch (GetType())
-        {
-            case ParrotTypes.NorwegianBlue:
-                return _isNailed ? 0 : GetBaseSpeed(_voltage);
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    }
-
-    private double GetBaseSpeed(double voltage)
-    {
-        return Math.Min(24.0, voltage * GetBaseSpeed());
-    }
-
+    public abstract double GetSpeed();
+    protected abstract ParrotTypes GetType();
+    
     protected double GetBaseSpeed() => 12.0;
 
-    public string GetCry()
+    public virtual string GetCry()
     {
         string value;
-        switch (_type)
+        switch (GetType())
         {
             case ParrotTypes.European:
                 value = "Sqoork!";
@@ -51,14 +30,9 @@ public class Parrot
             case ParrotTypes.African:
                 value = "Sqaark!";
                 break;
-            case ParrotTypes.NorwegianBlue:
-                value = _voltage > 0 ? "Bzzzzzz" : "...";
-                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
         return value;
     }
-
-    protected virtual ParrotTypes GetType() => _type;
 }

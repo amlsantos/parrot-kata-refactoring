@@ -4,10 +4,7 @@ public class AfricanParrot : Parrot
 {
     private readonly int _numberOfCoconuts;
 
-    public AfricanParrot(ParrotTypes type, int numberOfCoconuts, double voltage, bool isNailed) : base(type, voltage, isNailed)
-    {
-        _numberOfCoconuts = numberOfCoconuts;
-    }
+    public AfricanParrot(int numberOfCoconuts) => _numberOfCoconuts = numberOfCoconuts;
 
     protected override ParrotTypes GetType() => ParrotTypes.African;
 

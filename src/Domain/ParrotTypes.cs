@@ -4,5 +4,6 @@ public enum ParrotTypes
 {
     European,
     African,
-    NorwegianBlue
+    NorwegianBlue,
+    None
 }
