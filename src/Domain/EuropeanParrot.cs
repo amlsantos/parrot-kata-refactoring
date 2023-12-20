@@ -2,7 +2,7 @@
 
 public class EuropeanParrot : Parrot
 {
-    protected override ParrotTypes GetType() => ParrotTypes.European;
+    protected override ParrotTypes GetParrotType() => ParrotTypes.European;
 
     public override double GetSpeed() => GetBaseSpeed();
 

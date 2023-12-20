@@ -11,7 +11,7 @@ public class NorwegianBlueParrot : Parrot
         _isNailed = isNailed;
     }
 
-    protected override ParrotTypes GetType() => ParrotTypes.NorwegianBlue;
+    protected override ParrotTypes GetParrotType() => ParrotTypes.NorwegianBlue;
 
     public override double GetSpeed() => _isNailed ? 0 : GetBaseSpeed(_voltage);
 

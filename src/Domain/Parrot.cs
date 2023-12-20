@@ -15,18 +15,8 @@ public abstract class Parrot
     }
 
     public abstract double GetSpeed();
-    protected abstract ParrotTypes GetType();
+    protected abstract ParrotTypes GetParrotType();
+    public abstract string GetCry();
     
     protected double GetBaseSpeed() => 12.0;
-
-    public virtual string GetCry()
-    {
-        string value;
-        switch (GetType())
-        {
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-        return value;
-    }
 }

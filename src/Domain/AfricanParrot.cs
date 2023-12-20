@@ -6,7 +6,7 @@ public class AfricanParrot : Parrot
 
     public AfricanParrot(int numberOfCoconuts) => _numberOfCoconuts = numberOfCoconuts;
 
-    protected override ParrotTypes GetType() => ParrotTypes.African;
+    protected override ParrotTypes GetParrotType() => ParrotTypes.African;
 
     public override double GetSpeed() => Math.Max(0, GetBaseSpeed() - GetLoadFactor() * _numberOfCoconuts);
 
