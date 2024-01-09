@@ -1,3 +1,6 @@
+![build](https://github.com/amlsantos/parrot-kata-refactoring/actions/workflows/build.yml/badge.svg)
+![test](https://github.com/amlsantos/parrot-kata-refactoring/actions/workflows/test.yml/badge.svg)
+
 # Parrot Refactoring Kata
 
 This is my solution for the Parrot kata, a famous refactoring exercise designed to improve code readability, maintainability, and design. 
